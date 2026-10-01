@@ -1,0 +1,49 @@
+[build-system]
+requires = ["setuptools>=77"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "deadweight"
+dynamic = ["version"]
+description = "Find what you pay AWS for and don't use: read-only inventory, bill reconciliation and idle-resource detection, in the terminal."
+readme = "README.md"
+requires-python = ">=3.11"
+license = "Apache-2.0"
+license-files = ["LICENSE", "NOTICE"]
+keywords = ["aws", "cost", "finops", "tui", "idle resources", "cost explorer", "inventory"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Environment :: Console",
+    "Intended Audience :: System Administrators",
+    "Intended Audience :: Developers",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Topic :: System :: Systems Administration",
+    "Topic :: Office/Business :: Financial",
+]
+dependencies = [
+    "boto3>=1.40.0",
+    "botocore>=1.40.0",
+    "textual>=6.0.0",
+    "rich>=14.0.0",
+]
+
+[project.optional-dependencies]
+# Per-resource actual cost from Data Exports / CUR Parquet files
+cur = ["duckdb>=1.0"]
+dev = ["pytest>=8", "moto[all]>=5.1", "duckdb>=1.0"]
+
+[project.scripts]
+deadweight = "deadweight.cli:main"
+
+[tool.setuptools.dynamic]
+version = { attr = "deadweight.__version__" }
+
+[tool.setuptools.packages.find]
+include = ["deadweight*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+filterwarnings = ["ignore::DeprecationWarning"]

@@ -1,0 +1,19 @@
+# Scan output: contains account IDs, ARNs and resource names. Never commit it.
+deadweight-reports/
+aws-cost-report/
+
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+build/
+dist/
+.venv/
+venv/
+.pytest_cache/
+
+# Editors and OS
+.idea/
+.vscode/
+.DS_Store
+Thumbs.db
