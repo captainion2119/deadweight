@@ -4,7 +4,9 @@
 matches every line of the bill to the resources behind it, and sorts those resources into working, idle
 and forgotten.
 
-![Deadweight start screen](docs/start.png)
+[![Watch the 2½-minute demo on YouTube](docs/demo.jpg)](https://www.youtube.com/watch?v=bYjxTLdwB30)
+
+<p align="center"><a href="https://www.youtube.com/watch?v=bYjxTLdwB30">▶ Watch the 2½-minute demo on YouTube</a></p>
 
 It answers three questions:
 
@@ -144,6 +146,8 @@ For cron or CI, `--budget N` exits 2 when the run-rate or forecast exceeds N, an
 when findings of that severity exist.
 
 ## The app
+
+![Deadweight start screen](docs/start.png)
 
 | Key | View |
 |---|---|
